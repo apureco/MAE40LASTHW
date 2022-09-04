@@ -1,0 +1,30 @@
+clear all;
+clc;
+%PROBLEM 2%
+%RELAXATION OSCILLATOR%
+a= C(d/dt)(V_-0)=(Vs-V_)/R;
+%a should yield b%
+b= (1+R*C(d/dt))*V_=Vs;
+%Homogeneous solution of system%
+V_(t) =Ae^((-t)/R*C);
+%Particular Solution%
+V_(t)=Vs;
+IC= V_(0)=-Vs/2; 
+%Solution%
+%V_(t)=Vs-(3*Vs/2)*e^((-t)/(R*C))
+
+%PROBLEM 3%
+Vo(s)= -C1((s+1)/(R1*C1));
+Vi(s)= C2((s+1)/(R2*C2));
+F(s)=Vo(s)/Vi(s)
+%Simplified disp = (-1/(R1*C2))*((1+R1*C1*s)/(s+1)/(R2C2))%
+K0=C1/C2;
+z=1/(R1*C1);
+p=1/(R2*C2);
+F(s)=-K0(s+z)/(s+p)
+
+%PROBLEM 4%
+(Vi-V+)/R1=(V+ - Vo)/R2;
+%simplified = V+ = (R2*Vi+R1Vo)/(R1+R2)
+C*d/dt(V_ -0) = (Vo- V-)/R2;
+%simplified = Vo=(1+R2*C*d/dt)V_
